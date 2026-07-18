@@ -1,16 +1,124 @@
-<h2>Bharat Tycoon</h2>
+<div class="home-container">
 
-<button routerLink="/create-room">
-    Create Room
-</button>
+    <div class="hero">
 
-<br><br>
+        <div class="logo">
 
-<button routerLink="/join-room">
-    Join Room
-</button>
+            <mat-icon>emoji_events</mat-icon>
 
-<br><br><br><br><br>
-<button (click)="logout()">
-    Logout
-</button>
+        </div>
+
+        <h1>Bharat Tycoon</h1>
+
+        <p>
+
+            Build your empire. Trade. Conquer. Become India's Greatest Tycoon.
+
+        </p>
+
+    </div>
+
+    <h2 class="welcome">
+
+        Welcome back,
+        <span>{{username}}</span>
+
+        <!-- TODO: Replace username with logged in user's name -->
+
+    </h2>
+
+    <div class="dashboard">
+
+        <mat-card class="stats-card">
+
+            <h3>Game Statistics</h3>
+
+            <div class="stat">
+
+                <mat-icon>groups</mat-icon>
+
+                <span>Players Online</span>
+
+                <strong>{{playersOnline}}</strong>
+
+            </div>
+
+            <div class="stat">
+
+                <mat-icon>meeting_room</mat-icon>
+
+                <span>Active Rooms</span>
+
+                <strong>{{activeRooms}}</strong>
+
+            </div>
+
+            <div class="stat">
+
+                <mat-icon>sports_esports</mat-icon>
+
+                <span>Games Played</span>
+
+                <strong>{{gamesPlayed}}</strong>
+
+            </div>
+
+            <div class="stat">
+
+                <mat-icon>military_tech</mat-icon>
+
+                <span>Your Rank</span>
+
+                <strong>{{rank}}</strong>
+
+            </div>
+
+            <!--
+            TODO:
+            Replace dummy values using backend APIs
+            -->
+
+        </mat-card>
+
+        <mat-card class="action-card">
+
+            <button
+                    mat-flat-button
+                    color="primary"
+                    class="action-btn"
+                    routerLink="/create-room">
+
+                <mat-icon>add_circle</mat-icon>
+
+                Create Room
+
+            </button>
+
+            <button
+                    mat-flat-button
+                    color="accent"
+                    class="action-btn"
+                    routerLink="/join-room">
+
+                <mat-icon>meeting_room</mat-icon>
+
+                Join Room
+
+            </button>
+
+            <button
+                    mat-stroked-button
+                    class="logout-btn"
+                    (click)="logout()">
+
+                <mat-icon>logout</mat-icon>
+
+                Logout
+
+            </button>
+
+        </mat-card>
+
+    </div>
+
+</div>

@@ -1,19 +1,96 @@
-<h2>Login</h2>
+<div class="login-container">
 
-<input
-type="text"
-placeholder="Username"
-[(ngModel)]="user.username">
+    <mat-card class="login-card">
 
-<br><br>
+        <div class="logo-section">
 
-<input
-type="password"
-placeholder="Password"
-[(ngModel)]="user.password">
+            <mat-icon class="logo">
+                casino
+            </mat-icon>
 
-<br><br>
+            <h1>Bharat Tycoon</h1>
 
-<button (click)="login()">
-    Login
-</button>
+            <p>
+                Welcome back! Login to continue.
+            </p>
+
+        </div>
+
+
+        <mat-form-field
+                appearance="outline"
+                class="full-width">
+
+            <mat-label>
+                Username
+            </mat-label>
+
+            <input
+                    matInput
+                    [(ngModel)]="user.username">
+
+            <mat-icon matSuffix>
+                person
+            </mat-icon>
+
+        </mat-form-field>
+
+
+
+        <mat-form-field
+                appearance="outline"
+                class="full-width">
+
+            <mat-label>
+                Password
+            </mat-label>
+
+            <input
+                    matInput
+                    [type]="hidePassword ? 'password':'text'"
+                    [(ngModel)]="user.password">
+
+            <button
+                    mat-icon-button
+                    matSuffix
+                    type="button"
+                    (click)="hidePassword=!hidePassword">
+
+                <mat-icon>
+
+                    {{hidePassword ? 'visibility_off':'visibility'}}
+
+                </mat-icon>
+
+            </button>
+
+        </mat-form-field>
+
+
+
+        <button
+                mat-flat-button
+                color="primary"
+                class="login-btn"
+                (click)="login()">
+
+            Login
+
+        </button>
+
+
+        <div class="register-link">
+
+            Don't have an account?
+
+            <a routerLink="/register">
+
+                Register
+
+            </a>
+
+        </div>
+
+    </mat-card>
+
+</div>

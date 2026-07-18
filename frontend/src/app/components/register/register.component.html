@@ -1,19 +1,97 @@
-<h2>Register</h2>
+<div class="register-container">
 
-<input
-type="text"
-placeholder="Username"
-[(ngModel)]="user.username">
+    <mat-card class="register-card">
 
-<br><br>
+        <div class="logo-section">
 
-<input
-type="password"
-placeholder="Password"
-[(ngModel)]="user.password">
+            <mat-icon class="logo">
+                person_add
+            </mat-icon>
 
-<br><br>
+            <h1>Create Account</h1>
 
-<button (click)="register()">
-    Register
-</button>
+            <p>Join Bharat Tycoon and start playing.</p>
+
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+
+            <mat-label>Username</mat-label>
+
+            <input
+                    matInput
+                    [(ngModel)]="user.username">
+
+            <mat-icon matSuffix>person</mat-icon>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+
+            <mat-label>Password</mat-label>
+
+            <input
+                    matInput
+                    [type]="hidePassword ? 'password':'text'"
+                    [(ngModel)]="user.password">
+
+            <button
+                    mat-icon-button
+                    matSuffix
+                    type="button"
+                    (click)="hidePassword=!hidePassword">
+
+                <mat-icon>
+                    {{hidePassword ? 'visibility_off':'visibility'}}
+                </mat-icon>
+
+            </button>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+
+            <mat-label>Confirm Password</mat-label>
+
+            <input
+                    matInput
+                    [type]="hideConfirmPassword ? 'password':'text'"
+                    [(ngModel)]="confirmPassword">
+
+            <button
+                    mat-icon-button
+                    matSuffix
+                    type="button"
+                    (click)="hideConfirmPassword=!hideConfirmPassword">
+
+                <mat-icon>
+                    {{hideConfirmPassword ? 'visibility_off':'visibility'}}
+                </mat-icon>
+
+            </button>
+
+        </mat-form-field>
+
+        <button
+                mat-flat-button
+                color="primary"
+                class="register-btn"
+                (click)="register()">
+
+            Register
+
+        </button>
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a routerLink="/login">
+                Login
+            </a>
+
+        </div>
+
+    </mat-card>
+
+</div>
