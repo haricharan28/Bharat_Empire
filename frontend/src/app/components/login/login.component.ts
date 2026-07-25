@@ -44,6 +44,8 @@ export class LoginComponent {
     this.authservice.login(this.user).subscribe({
       next: (response: any) => {
         localStorage.setItem("userId", response.id);
+        console.log(response.id);
+        localStorage.setItem("username", response.username);
         this.router.navigate(['/home']);
       },
       error: () => {

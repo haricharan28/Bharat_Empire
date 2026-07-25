@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bharatempire.backend.room.entity.Room;
 import com.bharatempire.backend.room.entity.RoomPlayers;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,9 +32,11 @@ public class User {
     private Long gamesWon;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<RoomPlayers> roomPlayers;
 
     @OneToMany(mappedBy = "host")
+    @JsonIgnore
     private List<Room> hostedRooms;
 
 

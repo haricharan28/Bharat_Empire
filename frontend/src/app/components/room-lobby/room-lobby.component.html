@@ -1,1 +1,135 @@
-<p>room-lobby works!</p>
+<div class="lobby-container">
+
+    <div class="header">
+
+        <div>
+
+            <h1>Game Lobby</h1>
+
+            <p>Waiting for players to join...</p>
+
+        </div>
+
+        <div class="room-code">
+
+            <span>{{roomCode}}</span>
+
+            <button
+                    mat-icon-button
+                    (click)="copyRoomCode()">
+
+                <mat-icon>
+                    content_copy
+                </mat-icon>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="player-grid">
+
+        <mat-card
+                class="player-card"
+                *ngFor="let player of players">
+
+            <div class="avatar">
+
+                <mat-icon>
+
+                    account_circle
+
+                </mat-icon>
+
+            </div>
+
+            <h3>
+
+                {{ player.username || "Waiting..." }}
+
+            </h3>
+
+            <div class="badges">
+
+                <span
+                        class="host"
+                        *ngIf="player.host">
+
+                    👑 Host
+
+                </span>
+
+                <span
+                        class="ready"
+                        *ngIf="player.ready">
+
+                    ✅ Ready
+
+                </span>
+
+                <span
+                        class="waiting"
+                        *ngIf="!player.username">
+
+                    ⏳ Empty Slot
+
+                </span>
+
+            </div>
+
+        </mat-card>
+
+    </div>
+
+    <mat-card class="info-card">
+
+        <div class="info">
+
+            <span>Room Status</span>
+
+            <strong>{{status}}</strong>
+
+        </div>
+
+        <div class="info">
+
+            <span>Maximum Players</span>
+
+            <strong>{{maxPlayers}}</strong>
+
+        </div>
+
+    </mat-card>
+
+    <div class="actions">
+
+        <button
+                mat-flat-button
+                color="primary"
+                (click)="ready()">
+
+            Ready
+
+        </button>
+
+        <button
+                mat-flat-button
+                color="accent"
+                (click)="startGame()">
+
+            Start Game
+
+        </button>
+
+        <button
+                mat-stroked-button
+                routerLink="/home">
+
+            Leave Lobby
+
+        </button>
+
+    </div>
+
+</div>

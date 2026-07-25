@@ -1,9 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Room } from '../models/room.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
 
-  constructor() { }
+  private apiUrl='http://localhost:8080/room'
+  
+  constructor(private http:HttpClient) { }
+
+  createRoom(room: Room):Observable<any>{
+    return this.http.post(this.apiUrl+"/create", room);
+  }
 }
+
+

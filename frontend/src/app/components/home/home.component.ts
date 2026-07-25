@@ -23,7 +23,7 @@ export class HomeComponent {
   // TODO: Fetch from backend
   // =========================
 
-  username = "Player";
+  username = localStorage.getItem("username");
 
   playersOnline = 248;
 
@@ -41,6 +41,10 @@ export class HomeComponent {
 
     this.router.navigate(['/login']);
 
+  }
+
+  create(){
+    this.router.navigate(['/create/room']);
   }
 
 }

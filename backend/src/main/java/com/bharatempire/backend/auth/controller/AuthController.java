@@ -20,8 +20,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<User> loginUser(@RequestBody User user){
-        if(authService.authenticate(user)){
-            return new ResponseEntity<>(user, HttpStatusCode.valueOf(200));
+        User user2=authService.authenticate(user);
+        if(user2!=null){
+            return new ResponseEntity<>(user2, HttpStatusCode.valueOf(200));
         }
         else{
             return new ResponseEntity<>(HttpStatusCode.valueOf(404));

@@ -1,1 +1,100 @@
-<p>create-room works!</p>
+<div class="create-room-container">
+
+    <mat-card class="room-card">
+
+        <div class="title-section">
+
+            <mat-icon class="title-icon">
+                add_home_work
+            </mat-icon>
+
+            <h1>Create Room</h1>
+
+            <p>
+                Create a new room and invite your friends.
+            </p>
+
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+
+            <mat-label>Room Code</mat-label>
+
+            <input
+                    matInput
+                    [(ngModel)]="room.roomCode"
+                    readonly>
+
+            <button
+                    mat-icon-button
+                    matSuffix
+                    type="button"
+                    (click)="generateRoomCode()">
+
+                <mat-icon>
+                    refresh
+                </mat-icon>
+
+            </button>
+
+        </mat-form-field>
+
+        <div class="player-section">
+
+            <h3>Maximum Players</h3>
+
+            <mat-button-toggle-group
+                    [(ngModel)]="room.maxPlayers">
+
+                <mat-button-toggle [value]="2">
+                    2
+                </mat-button-toggle>
+
+                <mat-button-toggle [value]="4">
+                    4
+                </mat-button-toggle>
+
+                <mat-button-toggle [value]="6">
+                    6
+                </mat-button-toggle>
+
+            </mat-button-toggle-group>
+
+        </div>
+
+        <div class="status-card">
+
+            <mat-icon>
+                hourglass_top
+            </mat-icon>
+
+            <span>
+
+                Status :
+                <strong>{{room.status}}</strong>
+
+            </span>
+
+        </div>
+
+        <button
+                mat-flat-button
+                color="primary"
+                class="create-btn"
+                (click)="createRoom()">
+
+            Create Room
+
+        </button>
+
+        <button
+                mat-stroked-button
+                routerLink="/home">
+
+            Back
+
+        </button>
+
+    </mat-card>
+
+</div>

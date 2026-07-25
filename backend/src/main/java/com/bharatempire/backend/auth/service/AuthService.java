@@ -14,12 +14,13 @@ public class AuthService {
     @Autowired
     UserRepo userRepo;
 
-    public boolean authenticate(User user) {
+    public User authenticate(User user) {
         Optional<User> op=userRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-        if(op.isPresent()){
-            return true;
+        User user2=op.get();
+        if(user2!=null){
+            return user2;
         }else{
-            return false;
+            return null;
         }
     }
 
