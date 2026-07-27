@@ -1,0 +1,103 @@
+:host{
+    display:block;
+}
+
+.join-room-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    background:
+            radial-gradient(circle at top,#173042 0%,#121212 65%);
+}
+
+.join-card{
+
+    width:450px;
+
+    padding:40px;
+
+    background:#1d1d1d;
+
+    border-radius:20px;
+
+    color:white;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.55);
+
+}
+
+.title-section{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    .title-icon{
+
+        color:#00BCD4;
+
+        font-size:70px;
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+    h1{
+
+        margin:12px 0;
+
+        font-size:34px;
+
+        font-weight:700;
+
+    }
+
+    p{
+
+        color:#bdbdbd;
+
+    }
+
+}
+
+.full-width{
+
+    width:100%;
+
+    margin-bottom:30px;
+
+}
+
+.join-btn{
+
+    width:100%;
+
+    height:52px;
+
+    font-size:17px;
+
+    border-radius:12px;
+
+    margin-bottom:18px;
+
+}
+
+button[mat-stroked-button]{
+
+    width:100%;
+
+    height:50px;
+
+    border-radius:12px;
+
+}

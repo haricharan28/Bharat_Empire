@@ -39,5 +39,4 @@ public class User {
     @JsonIgnore
     private List<Room> hostedRooms;
 
-
 }

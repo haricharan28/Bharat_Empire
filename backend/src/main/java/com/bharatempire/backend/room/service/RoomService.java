@@ -1,5 +1,6 @@
 package com.bharatempire.backend.room.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,36 @@ public class RoomService {
         else{
             return false;
         }
+    }
+
+    // public RoomPlayers getRoom(String roomCode) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'getRoom'");
+    // }
+
+    public List<RoomPlayers> getPlayers(String roomCode) {
+        Room room=roomRepo.findByRoomCode(roomCode).orElse(null);
+        if(room!=null){
+            return roomPlayersRepo.findByRoom(room);
+        }
+        else{
+            return null;
+        }
+    }
+
+    public boolean playerReady(String roomCode, Long userId) {
+        Room room=roomRepo.findByRoomCode(roomCode).orElse(null);
+        User user=userRepo.findById(userId).orElse(null);
+        // List<RoomPlayers> roomPlayers=roomPlayersRepo.findByRoom(room);
+        RoomPlayers roomPlayers=roomPlayersRepo.findByRoomAndUser(room, user).orElse(null);
+        roomPlayers.setIsReady(true);
+        if(roomPlayersRepo.save(roomPlayers)!=null){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
 }

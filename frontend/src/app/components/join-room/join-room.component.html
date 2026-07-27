@@ -1,1 +1,65 @@
-<p>join-room works!</p>
+<div class="join-room-container">
+
+    <mat-card class="join-card">
+
+        <div class="title-section">
+
+            <mat-icon class="title-icon">
+
+                meeting_room
+
+            </mat-icon>
+
+            <h1>Join Room</h1>
+
+            <p>
+
+                Enter a room code shared by your friends.
+
+            </p>
+
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+
+            <mat-label>
+
+                Room Code
+
+            </mat-label>
+
+            <input
+                    matInput
+                    maxlength="6"
+                    placeholder="ABC123"
+                    [(ngModel)]="roomCode">
+
+            <mat-icon matSuffix>
+
+                key
+
+            </mat-icon>
+
+        </mat-form-field>
+
+        <button
+                mat-flat-button
+                color="primary"
+                class="join-btn"
+                (click)="joinRoom()">
+
+            Join Room
+
+        </button>
+
+        <button
+                mat-stroked-button
+                routerLink="/home">
+
+            Back
+
+        </button>
+
+    </mat-card>
+
+</div>

@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterLink,
     MatButtonModule,
     MatCardModule,
     MatIconModule
@@ -45,6 +44,10 @@ export class HomeComponent {
 
   create(){
     this.router.navigate(['/create/room']);
+  }
+
+  join(){
+    this.router.navigate(['/join/room']);
   }
 
 }

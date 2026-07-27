@@ -1,6 +1,7 @@
 package com.bharatempire.backend.room.entity;
 
 import com.bharatempire.backend.user.entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

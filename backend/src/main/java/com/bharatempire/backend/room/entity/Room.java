@@ -3,6 +3,7 @@ package com.bharatempire.backend.room.entity;
 import java.util.List;
 
 import com.bharatempire.backend.user.entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,5 +34,6 @@ public class Room {
     private String status;
 
     @OneToMany(mappedBy = "room")
+    @JsonIgnore
     private List<RoomPlayers> players;
 }

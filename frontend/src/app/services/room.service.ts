@@ -15,6 +15,18 @@ export class RoomService {
   createRoom(room: Room):Observable<any>{
     return this.http.post(this.apiUrl+"/create", room);
   }
+
+  joinRoom(roomCode: string, userId:number):Observable<any>{
+    return this.http.post(`${this.apiUrl}/join?roomCode=${roomCode}&userId=${userId}`, {});
+  }
+
+  getPlayers(roomCode:string):Observable<any>{
+    return this.http.get(`${this.apiUrl}/lobby?roomCode=${roomCode}`);
+  }
+
+  playerReady(roomCode:string, userId:number):Observable<any>{
+    return this.http.post(`${this.apiUrl}/ready?roomCode=${roomCode}&userId=${userId}`, {});
+  }
 }
 
 
