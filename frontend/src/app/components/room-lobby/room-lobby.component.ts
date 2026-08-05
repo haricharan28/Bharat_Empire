@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 
 import { RoomPlayers } from '../../models/roomPlayers.model';
 import { RoomService } from '../../services/room.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-room-lobby',
@@ -62,7 +63,7 @@ export class RoomLobbyComponent implements OnInit {
     }
   ];
 
-  constructor(private roomService: RoomService) {}
+  constructor(private roomService: RoomService, private gameService:GameService, private router:Router) {}
 
   ngOnInit(): void {
 
@@ -124,12 +125,22 @@ export class RoomLobbyComponent implements OnInit {
     });
 
   }
-
-  startGame() {
-
+  
+  startGame(){
     // TODO:
     // Start game when everyone is ready
 
+    const userId = Number(localStorage.getItem("userId"));
+    const roomCode=localStorage.getItem("roomCode");
+    this.gameService.startGame(userId, roomCode!).subscribe({
+      next:()=>{
+        this.router.navigate(['/game']);
+      },
+
+      error:()=>{
+        alert("Invalid Game");
+      }
+    })
   }
 
 }

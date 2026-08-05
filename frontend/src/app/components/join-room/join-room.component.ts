@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { RoomService } from '../../services/room.service';
 import { RoomPlayers } from '../../models/roomPlayers.model';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-join-room',
@@ -60,7 +61,6 @@ export class JoinRoomComponent {
       }
 
     });
-
   }
 
 }

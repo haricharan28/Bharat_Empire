@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { RoomLobbyComponent } from './components/room-lobby/room-lobby.component';
 import { JoinRoomComponent } from './components/join-room/join-room.component';
+import { GameComponent } from './components/game/game.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
     {
         path:'lobby',
         component:RoomLobbyComponent
+    },
+    {
+        path:'game',
+        component:GameComponent
     }
 ];
