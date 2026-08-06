@@ -1,1 +1,159 @@
-<p>right-sidebar works!</p>
+<div class="right-sidebar">
+
+    <!-- ===========================================================
+         CURRENT TURN
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Current Turn</h3>
+
+        <div class="current-player">
+
+            <div class="player-token"></div>
+
+            <span>{{ currentPlayer }}</span>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================================
+         DICE
+    ============================================================ -->
+
+ 
+
+    <!-- ===========================================================
+         PLAYER
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Player</h3>
+
+        <div class="info-row">
+
+            <span>Balance</span>
+
+            <strong>₹{{ balance }}</strong>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================================
+         CURRENT PROPERTY
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Current Property</h3>
+
+        <div
+            class="property-strip"
+            [style.background]="currentProperty.color">
+
+        </div>
+
+        <h4>
+
+            {{ currentProperty.name }}
+
+        </h4>
+
+        <p>
+
+            {{ currentProperty.state }}
+
+        </p>
+
+        <div class="info-row">
+
+            <span>Price</span>
+
+            <strong>₹{{ currentProperty.price }}</strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>Rent</span>
+
+            <strong>₹{{ currentProperty.rent }}</strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>Owner</span>
+
+            <strong>{{ currentProperty.owner }}</strong>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================================
+         ACTIONS
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Actions</h3>
+
+        <button class="primary-btn">
+
+            🏠 Buy Property
+
+        </button>
+
+        <button class="secondary-btn">
+
+            🤝 Trade
+
+        </button>
+
+        <button class="secondary-btn">
+
+            🏦 Mortgage
+
+        </button>
+
+        <button class="secondary-btn">
+
+            💰 Auction
+
+        </button>
+
+        <button class="danger-btn">
+
+            ⏭ End Turn
+
+        </button>
+
+    </div>
+
+    <!-- ===========================================================
+         EVENT LOG
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Event Log</h3>
+
+        <div class="event-log">
+
+            <div
+                class="event"
+                *ngFor="let event of eventLog">
+
+                {{ event }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

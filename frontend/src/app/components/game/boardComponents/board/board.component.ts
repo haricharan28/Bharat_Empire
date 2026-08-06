@@ -19,6 +19,7 @@ interface BoardTile {
 
 }
 
+
 @Component({
   selector: 'app-board',
   standalone: true,

@@ -1,1 +1,148 @@
-<p>left-sidebar works!</p>
+<div class="left-sidebar">
+
+    <!-- ===========================================================
+         HEADER
+    ============================================================ -->
+
+    <div class="sidebar-card header-card">
+
+        <h2>🏛 Bharat Tycoon</h2>
+
+        <p>Indian Monopoly</p>
+
+    </div>
+
+    <!-- ===========================================================
+         ROOM
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Room</h3>
+
+        <div class="info-row">
+
+            <span>Room Code</span>
+
+            <strong>{{ roomCode }}</strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>Host</span>
+
+            <strong>{{ players[0].name }} 👑</strong>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================================
+         PLAYERS
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Players ({{ players.length }}/6)</h3>
+
+        <div
+            class="player-card"
+            *ngFor="let player of players">
+
+            <div class="player-info">
+
+                <div
+                    class="player-token"
+                    [style.background]="player.color">
+
+                </div>
+
+                <div class="player-details">
+
+                    <div class="player-name">
+
+                        {{ player.name }}
+
+                        <span *ngIf="player.host">👑</span>
+
+                    </div>
+
+                    <div class="player-money">
+
+                        ₹{{ player.money }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div
+                class="status"
+                [class.ready]="player.ready"
+                [class.waiting]="!player.ready">
+
+                {{ player.ready ? 'Ready' : 'Waiting' }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================================================
+         TURN ORDER
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Turn Order</h3>
+
+        <ol class="turn-order">
+
+            <li *ngFor="let player of players">
+
+                {{ player.name }}
+
+            </li>
+
+        </ol>
+
+    </div>
+
+    <!-- ===========================================================
+         GAME STATS
+    ============================================================ -->
+
+    <div class="sidebar-card">
+
+        <h3>Game Stats</h3>
+
+        <div class="info-row">
+
+            <span>Round</span>
+
+            <strong>{{ round }}</strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>Properties Sold</span>
+
+            <strong>{{ propertiesSold }}/{{ totalProperties }}</strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>Bank Money</span>
+
+            <strong>₹{{ bankMoney }}</strong>
+
+        </div>
+
+    </div>
+
+</div>

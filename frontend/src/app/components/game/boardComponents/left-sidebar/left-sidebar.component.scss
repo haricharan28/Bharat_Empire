@@ -1,0 +1,315 @@
+:host{
+
+    display:block;
+
+    height:100%;
+
+}
+
+/* ===========================================================
+   SIDEBAR
+=========================================================== */
+
+.left-sidebar{
+
+    height:100%;
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    overflow-y:auto;
+
+    background:#181818;
+
+    color:white;
+
+}
+
+/* ===========================================================
+   SCROLLBAR
+=========================================================== */
+
+.left-sidebar::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.left-sidebar::-webkit-scrollbar-thumb{
+
+    background:#00BCD4;
+
+    border-radius:20px;
+
+}
+
+.left-sidebar::-webkit-scrollbar-track{
+
+    background:#202020;
+
+}
+
+/* ===========================================================
+   CARDS
+=========================================================== */
+
+.sidebar-card{
+
+    background:#242424;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    transition:.25s;
+
+}
+
+.sidebar-card:hover{
+
+    border-color:#00BCD4;
+
+    box-shadow:0 0 18px rgba(0,188,212,.25);
+
+}
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+
+.header-card{
+
+    text-align:center;
+
+}
+
+.header-card h2{
+
+    margin:0;
+
+    color:#00BCD4;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.header-card p{
+
+    margin-top:8px;
+
+    color:#BDBDBD;
+
+    font-size:14px;
+
+}
+
+/* ===========================================================
+   TITLES
+=========================================================== */
+
+.sidebar-card h3{
+
+    margin:0 0 16px;
+
+    padding-bottom:10px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    font-size:18px;
+
+    color:white;
+
+}
+
+/* ===========================================================
+   INFO ROW
+=========================================================== */
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+}
+
+.info-row span{
+
+    color:#BDBDBD;
+
+}
+
+.info-row strong{
+
+    color:white;
+
+}
+
+/* ===========================================================
+   PLAYER CARD
+=========================================================== */
+
+.player-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    background:#2d2d2d;
+
+    border-radius:12px;
+
+    transition:.25s;
+
+}
+
+.player-card:hover{
+
+    transform:translateX(5px);
+
+    background:#333;
+
+}
+
+/* ===========================================================
+   PLAYER INFO
+=========================================================== */
+
+.player-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.player-token{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    border:2px solid white;
+
+}
+
+.player-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.player-name{
+
+    font-weight:600;
+
+    font-size:15px;
+
+}
+
+.player-money{
+
+    color:#00BCD4;
+
+    font-size:13px;
+
+}
+
+/* ===========================================================
+   STATUS
+=========================================================== */
+
+.status{
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.ready{
+
+    background:#1B5E20;
+
+    color:#81C784;
+
+}
+
+.waiting{
+
+    background:#5D4037;
+
+    color:#FFCC80;
+
+}
+
+/* ===========================================================
+   TURN ORDER
+=========================================================== */
+
+.turn-order{
+
+    margin:0;
+
+    padding-left:20px;
+
+}
+
+.turn-order li{
+
+    margin-bottom:10px;
+
+    color:white;
+
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:1200px){
+
+    .left-sidebar{
+
+        padding:15px;
+
+    }
+
+    .header-card h2{
+
+        font-size:24px;
+
+    }
+
+}
