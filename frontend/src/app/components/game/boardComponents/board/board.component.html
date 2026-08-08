@@ -1,448 +1,321 @@
 <div class="board">
 
-    <!-- TOP -->
+    <!-- TOP ROW -->
+    <div class="top-row">
 
-    <!-- ================= TOP ROW ================= -->
-
-<div class="top-row">
-
-    <!-- GO -->
-
-    <div class="corner go">
-
-        <div class="corner-icon">
-
-            {{topTiles[0].icon}}
-
+        <!-- START -->
+        <div class="corner start">
+            <div class="corner-icon">{{ topTiles[0].icon }}</div>
+            <div class="corner-name">{{ topTiles[0].name }}</div>
         </div>
 
-        <div class="corner-title">
-
-            {{topTiles[0].name}}
-
-        </div>
-
-    </div>
-
-    <!-- TOP PROPERTIES -->
-
-    <div
-        class="tile property"
-        *ngFor="let tile of topTiles.slice(1,10)">
-
-        <!-- Property -->
-
-        <ng-container *ngIf="tile.type=='PROPERTY'; else specialTile">
-
-            <div
-                class="color-strip"
-                [style.background]="tile.color">
-
-            </div>
-
-            <div class="city">
-
-                {{tile.name}}
-
-            </div>
-
-            <div class="state">
-
-                {{tile.state}}
-
-            </div>
-
-            <div class="price">
-
-                ₹{{tile.price}}
-
-            </div>
-
-            <!-- Owner Marker -->
-
-            <div class="owner">
-
-                ○
-
-            </div>
-
-            <!-- TODO:
-                 Player Tokens
-            -->
-
-        </ng-container>
-
-        <!-- SPECIAL TILES -->
-
-        <ng-template #specialTile>
-
-            <div class="special">
-
-                <div class="special-icon">
-
-                    {{tile.icon}}
-
-                </div>
-
-                <div class="special-name">
-
-                    {{tile.name}}
-
-                </div>
-
-            </div>
-
-        </ng-template>
-
-    </div>
-
-    <!-- JAIL -->
-
-    <div class="corner jail">
-
-        <div class="corner-icon">
-
-            {{topTiles[10].icon}}
-
-        </div>
-
-        <div class="corner-title">
-
-            {{topTiles[10].name}}
-
-        </div>
-
-    </div>
-
-</div>
-    <!-- MIDDLE -->
-
-    <!-- ================= MIDDLE ================= -->
-
-<div class="middle">
-
-    <!-- LEFT COLUMN -->
-
-    <div class="left-column">
-
+        <!-- TOP PROPERTIES -->
         <div
-            class="tile property vertical"
-            *ngFor="let tile of leftTiles">
+            class="tile"
+            *ngFor="let tile of topTiles.slice(1, 10)"
+            [class.property]="tile.type === 'PROPERTY'"
+            [class.special]="tile.type === 'SPECIAL'">
 
-            <ng-container *ngIf="tile.type=='PROPERTY'; else leftSpecial">
+            <ng-container *ngIf="tile.type === 'PROPERTY'; else topSpecial">
 
                 <div
-                    class="color-strip"
-                    [style.background]="tile.color">
-
+                    class="state-bar"
+                    [style.background]="tile.stateColor">
                 </div>
 
-                <div class="city">
-
-                    {{tile.name}}
-
+                <div
+                    class="owner-bar"
+                    *ngIf="tile.ownerColor"
+                    [style.background]="tile.ownerColor">
                 </div>
 
-                <div class="state">
-
-                    {{tile.state}}
-
+                <div class="tile-name">
+                    {{ tile.name }}
                 </div>
 
-                <div class="price">
-
-                    ₹{{tile.price}}
-
+                <div class="tile-state">
+                    {{ tile.state }}
                 </div>
 
-                <div class="owner">
-
-                    ○
-
+                <div class="tile-price">
+                    ₹{{ tile.price }}
                 </div>
 
             </ng-container>
 
-            <ng-template #leftSpecial>
+            <ng-template #topSpecial>
 
-                <div class="special">
+                <div class="special-icon">
+                    {{ tile.icon }}
+                </div>
 
-                    <div class="special-icon">
-
-                        {{tile.icon}}
-
-                    </div>
-
-                    <div class="special-name">
-
-                        {{tile.name}}
-
-                    </div>
-
+                <div class="special-name">
+                    {{ tile.name }}
                 </div>
 
             </ng-template>
 
         </div>
 
+        <!-- JAIL -->
+        <div class="corner jail">
+            <div class="corner-icon">{{ topTiles[10].icon }}</div>
+            <div class="corner-name">{{ topTiles[10].name }}</div>
+        </div>
+
     </div>
 
-    <!-- ================= CENTER ================= -->
 
-    <div class="center">
+    <!-- MIDDLE -->
+    <div class="middle">
 
-        <div class="center-logo">
+        <!-- LEFT COLUMN -->
+        <div class="side-column">
 
-            🏛
+            <div
+                class="tile"
+                *ngFor="let tile of leftTiles"
+                [class.property]="tile.type === 'PROPERTY'"
+                [class.special]="tile.type === 'SPECIAL'">
+
+                <ng-container *ngIf="tile.type === 'PROPERTY'; else leftSpecial">
+
+                    <div
+                        class="state-bar vertical-bar"
+                        [style.background]="tile.stateColor">
+                    </div>
+
+                    <div
+                        class="owner-bar vertical-owner"
+                        *ngIf="tile.ownerColor"
+                        [style.background]="tile.ownerColor">
+                    </div>
+
+                    <div class="tile-name">
+                        {{ tile.name }}
+                    </div>
+
+                    <div class="tile-state">
+                        {{ tile.state }}
+                    </div>
+
+                    <div class="tile-price">
+                        ₹{{ tile.price }}
+                    </div>
+
+                </ng-container>
+
+                <ng-template #leftSpecial>
+
+                    <div class="special-icon">
+                        {{ tile.icon }}
+                    </div>
+
+                    <div class="special-name">
+                        {{ tile.name }}
+                    </div>
+
+                </ng-template>
+
+            </div>
 
         </div>
 
-        <h1>
 
-            Bharat Tycoon
+        <!-- CENTER -->
+        <div class="center">
 
-        </h1>
+            <div class="center-logo">
+                🇮🇳
+            </div>
 
-        <p>
+            <h1>
+                Bharat Tycoon
+            </h1>
 
-            Build • Trade • Conquer
-
-        </p>
-
-        <div class="divider"></div>
-
-        <div class="current-turn">
-
-            <span>
-
-                Current Turn
-
-            </span>
-
-            <h2>
-
-                Haricharan
-
-            </h2>
-
-            <!--
-            TODO:
-            Fetch current player from backend
-            -->
-
-        </div>
-
-        <button class="roll-btn">
-
-            🎲 Roll Dice
-
-        </button>
-
-        <div class="dice-placeholder">
-
-            ?
-
-        </div>
-
-        <div class="event-box">
-
-            <h3>
-
-                Latest Event
-
-            </h3>
+            <div class="divider"></div>
 
             <p>
-
-                Waiting for Host...
-
+                India's Business Empire
             </p>
 
-            <!--
-            TODO:
-            Replace with live game events
-            -->
+            <div class="current-turn">
+
+                <span>
+                    Current Turn
+                </span>
+
+                <h2>
+                    Haricharan
+                </h2>
+
+            </div>
+
+            <div class="dice-area">
+
+                <div class="dice">
+                    ⚄
+                </div>
+
+                <div class="dice">
+                    ⚂
+                </div>
+
+            </div>
+
+            <button class="roll-btn">
+                🎲 Roll Dice
+            </button>
 
         </div>
 
-    </div>
 
-    <!-- ================= RIGHT COLUMN ================= -->
+        <!-- RIGHT COLUMN -->
+        <div class="side-column">
 
-    <div class="right-column">
+            <div
+                class="tile"
+                *ngFor="let tile of rightTiles"
+                [class.property]="tile.type === 'PROPERTY'"
+                [class.special]="tile.type === 'SPECIAL'">
 
-        <div
-            class="tile property vertical"
-            *ngFor="let tile of rightTiles">
+                <ng-container *ngIf="tile.type === 'PROPERTY'; else rightSpecial">
 
-            <ng-container *ngIf="tile.type=='PROPERTY'; else rightSpecial">
+                    <div
+                        class="state-bar vertical-bar"
+                        [style.background]="tile.stateColor">
+                    </div>
 
-                <div
-                    class="color-strip"
-                    [style.background]="tile.color">
+                    <div
+                        class="owner-bar vertical-owner"
+                        *ngIf="tile.ownerColor"
+                        [style.background]="tile.ownerColor">
+                    </div>
 
-                </div>
+                    <div class="tile-name">
+                        {{ tile.name }}
+                    </div>
 
-                <div class="city">
+                    <div class="tile-state">
+                        {{ tile.state }}
+                    </div>
 
-                    {{tile.name}}
+                    <div class="tile-price">
+                        ₹{{ tile.price }}
+                    </div>
 
-                </div>
+                </ng-container>
 
-                <div class="state">
-
-                    {{tile.state}}
-
-                </div>
-
-                <div class="price">
-
-                    ₹{{tile.price}}
-
-                </div>
-
-                <div class="owner">
-
-                    ○
-
-                </div>
-
-            </ng-container>
-
-            <ng-template #rightSpecial>
-
-                <div class="special">
+                <ng-template #rightSpecial>
 
                     <div class="special-icon">
-
-                        {{tile.icon}}
-
+                        {{ tile.icon }}
                     </div>
 
                     <div class="special-name">
-
-                        {{tile.name}}
-
+                        {{ tile.name }}
                     </div>
 
-                </div>
+                </ng-template>
 
-            </ng-template>
-
-        </div>
-
-    </div>
-
-</div>
-
-    <!-- BOTTOM -->
-
-    <!-- ================= BOTTOM ROW ================= -->
-
-<div class="bottom-row">
-
-    <!-- VACATION -->
-
-    <div class="corner vacation">
-
-        <div class="corner-icon">
-
-            {{bottomTiles[0].icon}}
-
-        </div>
-
-        <div class="corner-title">
-
-            {{bottomTiles[0].name}}
+            </div>
 
         </div>
 
     </div>
 
-    <!-- BOTTOM PROPERTIES -->
 
-    <div
-        class="tile property"
-        *ngFor="let tile of bottomTiles.slice(1,10)">
+    <!-- BOTTOM ROW -->
+    <div class="bottom-row">
 
-        <!-- PROPERTY -->
+        <!-- GO TO JAIL -->
+        <div class="corner go-to-jail">
 
-        <ng-container *ngIf="tile.type=='PROPERTY'; else bottomSpecial">
+            <div class="corner-icon">
+                {{ bottomTiles[0].icon }}
+            </div>
+
+            <div class="corner-name">
+                {{ bottomTiles[0].name }}
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM PROPERTIES -->
+        <div
+            class="tile"
+            *ngFor="let tile of bottomTiles.slice(1, 9)"
+            [class.property]="tile.type === 'PROPERTY'">
 
             <div
-                class="color-strip"
-                [style.background]="tile.color">
-
+                class="state-bar"
+                [style.background]="tile.stateColor">
             </div>
 
-            <div class="city">
-
-                {{tile.name}}
-
+            <div
+                class="owner-bar"
+                *ngIf="tile.ownerColor"
+                [style.background]="tile.ownerColor">
             </div>
 
-            <div class="state">
-
-                {{tile.state}}
-
+            <div class="tile-name">
+                {{ tile.name }}
             </div>
 
-            <div class="price">
-
-                ₹{{tile.price}}
-
+            <div class="tile-state">
+                {{ tile.state }}
             </div>
 
-            <div class="owner">
-
-                ○
-
+            <div class="tile-price">
+                ₹{{ tile.price }}
             </div>
-
-        </ng-container>
-
-        <!-- SPECIAL TILE -->
-
-        <ng-template #bottomSpecial>
-
-            <div class="special">
-
-                <div class="special-icon">
-
-                    {{tile.icon}}
-
-                </div>
-
-                <div class="special-name">
-
-                    {{tile.name}}
-
-                </div>
-
-            </div>
-
-        </ng-template>
-
-    </div>
-
-    <!-- START -->
-
-    <div class="corner start">
-
-        <div class="corner-icon">
-
-            {{bottomTiles[9].icon}}
 
         </div>
 
-        <div class="corner-title">
 
-            {{bottomTiles[9].name}}
+        <!-- BHUBANESWAR -->
+        <div class="tile property">
+
+            <div
+                class="state-bar"
+                [style.background]="bottomTiles[8].stateColor">
+            </div>
+
+            <div
+                class="owner-bar"
+                *ngIf="bottomTiles[8].ownerColor"
+                [style.background]="bottomTiles[8].ownerColor">
+            </div>
+
+            <div class="tile-name">
+                {{ bottomTiles[8].name }}
+            </div>
+
+            <div class="tile-state">
+                {{ bottomTiles[8].state }}
+            </div>
+
+            <div class="tile-price">
+                ₹{{ bottomTiles[8].price }}
+            </div>
+
+        </div>
+
+
+        <!-- VACATION -->
+        <div class="corner vacation">
+
+            <div class="corner-icon">
+                {{ bottomTiles[9].icon }}
+            </div>
+
+            <div class="corner-name">
+                {{ bottomTiles[9].name }}
+            </div>
 
         </div>
 
     </div>
-
-</div>
 
 </div>
