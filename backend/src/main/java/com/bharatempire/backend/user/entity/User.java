@@ -2,6 +2,7 @@ package com.bharatempire.backend.user.entity;
 
 import java.util.List;
 
+import com.bharatempire.backend.property.entity.PropertyOwners;
 import com.bharatempire.backend.room.entity.Room;
 import com.bharatempire.backend.room.entity.RoomPlayers;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,5 +40,4 @@ public class User {
     @OneToMany(mappedBy = "host")
     @JsonIgnore
     private List<Room> hostedRooms;
-
 }

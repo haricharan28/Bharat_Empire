@@ -2,6 +2,7 @@ package com.bharatempire.backend.room.entity;
 
 import java.util.List;
 
+import com.bharatempire.backend.property.entity.PropertyOwners;
 import com.bharatempire.backend.user.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -12,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,4 +38,9 @@ public class Room {
     @OneToMany(mappedBy = "room")
     @JsonIgnore
     private List<RoomPlayers> players;
+
+    
+    @OneToOne(mappedBy = "room")
+    @JsonIgnore
+    private PropertyOwners propertyOwner;
 }

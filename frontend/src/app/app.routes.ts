@@ -6,6 +6,7 @@ import { CreateRoomComponent } from './components/create-room/create-room.compon
 import { RoomLobbyComponent } from './components/room-lobby/room-lobby.component';
 import { JoinRoomComponent } from './components/join-room/join-room.component';
 import { GameComponent } from './components/game/game.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 export const routes: Routes = [
     {
@@ -40,5 +41,9 @@ export const routes: Routes = [
     {
         path:'game',
         component:GameComponent
+    },
+    {
+        path:'admin',
+        component:AdminComponent
     }
 ];

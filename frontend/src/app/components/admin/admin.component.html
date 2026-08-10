@@ -1,0 +1,308 @@
+<div class="admin-page">
+
+    <div class="admin-header">
+        <h1>Property Management</h1>
+        <p>Add and manage Bharat Tycoon properties</p>
+    </div>
+
+
+    <!-- ADD PROPERTY FORM -->
+
+    <div class="admin-card">
+
+        <h2>Add Property</h2>
+
+        <form [formGroup]="propertyForm" (ngSubmit)="addProperty()">
+
+            <div class="form-grid">
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>Property Name</label>
+
+                    <input
+                        type="text"
+                        formControlName="name"
+                        placeholder="e.g. Hyderabad">
+
+                    <small
+                        *ngIf="
+                            propertyForm.get('name')?.touched &&
+                            propertyForm.get('name')?.invalid
+                        ">
+
+                        Property name is required.
+
+                    </small>
+
+                </div>
+
+
+                <!-- STATE -->
+
+                <div class="form-group">
+
+                    <label>Property State</label>
+
+                    <input
+                        type="text"
+                        formControlName="state"
+                        placeholder="e.g. TG">
+
+                    <small
+                        *ngIf="
+                            propertyForm.get('state')?.touched &&
+                            propertyForm.get('state')?.invalid
+                        ">
+
+                        Property State is required.
+
+                    </small>
+
+                </div>
+
+
+                <!-- BOARD POSITION -->
+
+                <div class="form-group">
+
+                    <label>Board Position</label>
+
+                    <input
+                        type="number"
+                        formControlName="boardPosition"
+                        min="0"
+                        max="39"
+                        placeholder="0 - 39">
+
+                </div>
+
+
+                <!-- PRICE -->
+
+                <div class="form-group">
+
+                    <label>Price</label>
+
+                    <input
+                        type="number"
+                        formControlName="price"
+                        placeholder="₹120">
+
+                </div>
+
+
+                <!-- RENT -->
+
+                <div class="form-group">
+
+                    <label>Rent</label>
+
+                    <input
+                        type="number"
+                        formControlName="rent"
+                        placeholder="₹15">
+
+                </div>
+
+
+                <!-- MORTGAGE -->
+
+                <div class="form-group">
+
+                    <label>Mortgage Value</label>
+
+                    <input
+                        type="number"
+                        formControlName="mortgageValue"
+                        placeholder="₹60">
+
+                </div>
+
+
+                <!-- COLOR -->
+
+                <div class="form-group">
+
+                    <label>State Color</label>
+
+                    <div class="color-input">
+
+                        <input
+                            type="color"
+                            formControlName="color">
+
+                        <span>
+                            {{ propertyForm.get('color')?.value }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROPERTY TYPE -->
+
+                <div class="form-group">
+
+                    <label>Property Type</label>
+
+                    <select formControlName="propertyType">
+
+                        <option value="PROPERTY">
+                            Property
+                        </option>
+
+                        <option value="RAILWAY">
+                            Railway
+                        </option>
+
+                        <option value="UTILITY">
+                            Utility
+                        </option>
+
+                        <option value="SPECIAL">
+                            Special
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- HOUSE COST -->
+
+                <div class="form-group">
+
+                    <label>House Cost</label>
+
+                    <input
+                        type="number"
+                        formControlName="houseCost"
+                        placeholder="₹100">
+
+                </div>
+
+
+                <!-- HOTEL COST -->
+
+                <div class="form-group">
+
+                    <label>Hotel Cost</label>
+
+                    <input
+                        type="number"
+                        formControlName="hotelCost"
+                        placeholder="₹200">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="add-btn"
+                    [disabled]="propertyForm.invalid">
+
+                    + Add Property
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- PROPERTY LIST -->
+
+    <div class="admin-card">
+
+        <div class="list-header">
+
+            <h2>Properties</h2>
+
+            <span class="property-count">
+
+                {{ properties.length }}
+
+            </span>
+
+        </div>
+
+
+        <div
+            class="empty-state"
+            *ngIf="properties.length === 0">
+
+            <div class="empty-icon">
+                🏙️
+            </div>
+
+            <p>No properties added yet.</p>
+
+        </div>
+
+
+        <div
+            class="property-list"
+            *ngIf="properties.length > 0">
+
+            <div
+                class="property-row"
+                *ngFor="let property of properties; let i = index">
+
+                <div class="property-color"
+                    [style.background]="property.color">
+                </div>
+
+
+                <div class="property-info">
+
+                    <strong>
+                        {{ property.name }}
+                    </strong>
+
+                    <span>
+                        Position {{ property.boardPosition }}
+                    </span>
+
+                </div>
+
+
+                <div class="property-price">
+
+                    ₹{{ property.price }}
+
+                </div>
+
+
+                <div class="property-state">
+
+                    {{ property.propertyType }}
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="delete-btn"
+                    (click)="removeProperty(i)">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

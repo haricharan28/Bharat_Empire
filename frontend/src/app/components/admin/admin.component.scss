@@ -1,0 +1,404 @@
+:host {
+    display: block;
+    min-height: 100vh;
+}
+
+/* ===========================================================
+   PAGE
+=========================================================== */
+
+.admin-page {
+    min-height: 100vh;
+    padding: 30px 40px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #173042 0%,
+            #121212 65%
+        );
+
+    color: white;
+    box-sizing: border-box;
+}
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+
+.admin-header {
+    margin-bottom: 25px;
+}
+
+.admin-header h1 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.admin-header p {
+    margin: 8px 0 0;
+
+    color: #9e9e9e;
+    font-size: 14px;
+}
+
+/* ===========================================================
+   CARD
+=========================================================== */
+
+.admin-card {
+    max-width: 1000px;
+
+    margin-bottom: 25px;
+    padding: 25px;
+
+    background: #1d1d1d;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 16px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .3);
+}
+
+.admin-card h2 {
+    margin: 0 0 20px;
+
+    font-size: 20px;
+}
+
+/* ===========================================================
+   FORM
+=========================================================== */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group label {
+    color: #bdbdbd;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #292929;
+    color: white;
+
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #00bcd4;
+
+    box-shadow:
+        0 0 8px rgba(0, 188, 212, .2);
+}
+
+.form-group input::placeholder {
+    color: #666;
+}
+
+.form-group small {
+    color: #ef5350;
+
+    font-size: 11px;
+}
+
+/* ===========================================================
+   COLOR
+=========================================================== */
+
+.color-input {
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    background: #292929;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+}
+
+.color-input input {
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.color-input span {
+    color: #bdbdbd;
+
+    font-size: 13px;
+}
+
+/* ===========================================================
+   FORM ACTION
+=========================================================== */
+
+.form-actions {
+    margin-top: 25px;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+.add-btn {
+    height: 42px;
+
+    padding: 0 25px;
+
+    border: none;
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0097a7,
+            #00bcd4
+        );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.add-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(0, 188, 212, .4);
+}
+
+.add-btn:disabled {
+    opacity: .4;
+
+    cursor: not-allowed;
+}
+
+/* ===========================================================
+   PROPERTY LIST HEADER
+=========================================================== */
+
+.list-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.list-header h2 {
+    margin: 0;
+}
+
+.property-count {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #00bcd4;
+
+    color: #111;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ===========================================================
+   EMPTY STATE
+=========================================================== */
+
+.empty-state {
+    padding: 35px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+.empty-icon {
+    font-size: 35px;
+
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+/* ===========================================================
+   PROPERTY LIST
+=========================================================== */
+
+.property-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.property-row {
+    min-height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 8px 12px;
+
+    box-sizing: border-box;
+
+    background: #292929;
+
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 10px;
+}
+
+/* ===========================================================
+   PROPERTY COLOR
+=========================================================== */
+
+.property-color {
+    width: 8px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 5px;
+}
+
+/* ===========================================================
+   PROPERTY INFO
+=========================================================== */
+
+.property-info {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.property-info strong {
+    font-size: 14px;
+}
+
+.property-info span {
+    color: #888;
+
+    font-size: 11px;
+}
+
+/* ===========================================================
+   PRICE
+=========================================================== */
+
+.property-price {
+    min-width: 80px;
+
+    color: #00bcd4;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ===========================================================
+   TYPE
+=========================================================== */
+
+.property-state {
+    min-width: 80px;
+
+    color: #bdbdbd;
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+/* ===========================================================
+   DELETE
+=========================================================== */
+
+.delete-btn {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #3a2525;
+
+    color: #ef5350;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #ef5350;
+
+    color: white;
+}
