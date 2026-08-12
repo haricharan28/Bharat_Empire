@@ -4,6 +4,19 @@ import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { HomeService } from '../../services/home.service';
+
+interface HomeDTO {
+  user: {
+    id: number;
+    username: string;
+    avatar: string;
+    coins: number;
+    gamesPlayed: number;
+    gamesWon: number;
+  };
+  roomCount: number;
+}
 
 @Component({
   selector: 'app-home',
@@ -24,15 +37,28 @@ export class HomeComponent {
 
   username = localStorage.getItem("username");
 
-  playersOnline = 248;
+  playersOnline = 0;
 
-  activeRooms = 37;
+  activeRooms = 0;
 
-  gamesPlayed = 56;
+  gamesPlayed = 0;
 
-  rank = "#18";
+  rank = "";
+  
+  constructor(private router: Router, private homeService:HomeService) {}
 
-  constructor(private router: Router) {}
+  ngOnInit():void{
+    this.homeService.homeDetails(Number(localStorage.getItem("userId"))).subscribe({
+      next:(value)=>{
+        console.log(value)
+        // this.playersOnline=value.user.playersOnline;
+        this.activeRooms=value.roomCount;
+        this.gamesPlayed=value.user.gamesPlayed;
+        this.rank=value.user.id;
+      }
+    });
+  }
+  
 
   logout() {
 
